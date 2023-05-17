@@ -1250,7 +1250,9 @@ public class BLECentralPlugin extends CordovaPlugin {
             if (connecting){
                 LOG.d(TAG, "Not removing connecting device: " + device.getDevice().getAddress());
             }
-            if(!entry.getValue().isConnected() && !connecting) {
+
+            // don't remove a cached peripheral if connected/connecting or auto connect is setup
+            if(!entry.getValue().isConnected() && !connecting && !entry.getValue().isAutoConnect()) {
                 iterator.remove();
             }
         }

@@ -377,6 +377,10 @@ public class Peripheral extends BluetoothGattCallback {
         return connecting;
     }
 
+    public boolean isAutoConnect(){
+        return autoconnect;
+    }
+
     public BluetoothDevice getDevice() {
         return device;
     }
